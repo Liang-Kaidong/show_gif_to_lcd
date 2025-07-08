@@ -129,11 +129,12 @@ int show_gif_to_lcd(const char *filename, int x, int y, int width, int height, i
         }
 
         if (gd_get_frame(gif) != 1) {
-            if (play_time == 0) {
-                gd_rewind(gif);  /* 循环播放 */
+            if (play_time > 0) {
+                gd_rewind(gif);
                 continue;
             } else {
-                break;
+                gd_rewind(gif);
+                continue;
             }
         }
 
