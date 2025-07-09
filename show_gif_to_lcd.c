@@ -1,4 +1,16 @@
-/* 添加此宏定义以启用 timespec 和 nanosleep 支持 */
+/*************************************************************************************************************
+File name: show_gif_to_lcd.c
+Author: KD
+Version: V_1.0
+Build date: 2025-07-07
+Description: This program uses a series of functions to initialize the LCD device, read GIF files, convert the 
+             GIF frame data into a format suitable for LCD display, and then display the frames one - by - one 
+             on the LCD screen according to the delay time set by the GIF animation. Finally, it releases the 
+             relevant resources after the playback ends.
+Others: Usage requires preservation of original author attribution.
+bug: you tell me!
+*************************************************************************************************************/
+
 #define _POSIX_C_SOURCE 199309L  
 #include <stdio.h>
 #include <stdlib.h>

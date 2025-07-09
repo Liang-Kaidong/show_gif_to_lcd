@@ -1,3 +1,14 @@
+/*************************************************************************************************************
+File name: show_gif_to_lcd.h
+Author: KD
+Version: V_1.0
+Build date: 2025-07-07
+Description: The file show_gif_to_lcd.h is a header file whose main purpose is to declare a function named 
+             show_gif_to_lcd. This function is used to play and display a GIF file on the LCD screen. 
+Others: Usage requires preservation of original author attribution.
+bug: you tell me!
+*************************************************************************************************************/
+
 /* 防止头文件重复包含 */
 #ifndef SHOW_GIF_TO_LCD_H
 #define SHOW_GIF_TO_LCD_H
