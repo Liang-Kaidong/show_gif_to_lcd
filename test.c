@@ -1,3 +1,12 @@
+/*************************************************************************************************************
+File name: test.c
+Author: KD
+Version: V_1.0
+Build date: 2025-07-07
+Description: demo.
+Others: Usage requires preservation of original author attribution.
+bug: you tell me!
+*************************************************************************************************************/
 #include <stdio.h>
 #include "show_gif_to_lcd.h"
 
