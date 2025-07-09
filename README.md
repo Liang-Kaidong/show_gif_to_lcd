@@ -1,15 +1,15 @@
 # 《GIF 显示到 LCD 项目开发：从原理到集成》
 
 ## 一、项目概述
-本项目基于`gifdec`库实现GIF动画在嵌入式设备LCD屏幕上的显示功能。^[1]^通过封装核心代码为静态库`libshow_gif_to_lcd.a`，提供简洁易用的接口，支持自定义显示位置、大小和播放时间，适用于各类需要动态显示的嵌入式系统。^[2]^
+本项目基于`gifdec`库实现GIF动画在嵌入式设备LCD屏幕上的显示功能。通过封装核心代码为静态库`libshow_gif_to_lcd.a`，提供简洁易用的接口，支持自定义显示位置、大小和播放时间，适用于各类需要动态显示的嵌入式系统。
 
 ## 二、功能说明
 ### 核心模块
 - **show_gif_to_lcd.c**：
-  - 实现LCD初始化、GIF帧解析与渲染逻辑。^[3]^
-  - 支持RGB888到RGB565颜色空间转换（适配16位LCD）。^[4]^
-  - 提供帧缓冲管理与内存映射机制。^[5]^
-  - 实现基于时间的动画控制逻辑。^[6]^
+  - 实现LCD初始化、GIF帧解析与渲染逻辑。
+  - 支持RGB888到RGB565颜色空间转换（适配16位LCD）。
+  - 提供帧缓冲管理与内存映射机制。
+  - 实现基于时间的动画控制逻辑。
 
 - **show_gif_to_lcd.h**：对外提供统一接口函数
   ```c
@@ -24,14 +24,14 @@
   | `play_time` | 播放时间（0表示循环播放） |
 
 ### 静态库
-- **libshow_gif_to_lcd.a**：由`show_gif_to_lcd.c`和`gifdec.c`编译生成。^[7]^
+- **libshow_gif_to_lcd.a**：由`show_gif_to_lcd.c`和`gifdec.c`编译生成。
 - **依赖**：
   - Linux帧缓冲设备（`/dev/fb0`）。
   - `gifdec`库（已包含）。
 
 ## 三、静态库使用方法
 ### 集成步骤
-1. 将`libshow_gif_to_lcd.a`和`show_gif_to_lcd.h`复制到项目目录。^[8]^
+1. 将`libshow_gif_to_lcd.a`和`show_gif_to_lcd.h`复制到项目目录。
 2. 在源文件中包含头文件：
    ```c
    #include "show_gif_to_lcd.h"
@@ -67,12 +67,12 @@ cp gifdec/gifdec.[ch] path/to/your/project/
 ```
 
 ### 修改show_gif_to_lcd.c参数
-- **LCD设备路径**：修改`LCD_DEVICE`宏定义。^[10]^
+- **LCD设备路径**：修改`LCD_DEVICE`宏定义。
   ```c
   #define LCD_DEVICE "/dev/fb0"  // 默认帧缓冲设备
   ```
-- **颜色转换逻辑**：调整`rgb888_to_rgb565()`函数。^[11]^
-- **显示性能优化**：调整`lcd_draw_frame()`中的渲染算法。^[12]^
+- **颜色转换逻辑**：调整`rgb888_to_rgb565()`函数。
+- **显示性能优化**：调整`lcd_draw_frame()`中的渲染算法。
 
 ## 五、编译与构建
 ### 一次性编译命令
@@ -170,18 +170,18 @@ arm-linux-gnueabihf-gcc -std=gnu99 -Wall -o test test.c -L. -lshow_gif_to_lcd
 ## 八、常见问题
 ### LCD显示异常
 - 检查`LCD_DEVICE`路径是否正确。
-- 确认LCD分辨率与代码中设置一致。^[13]^
+- 确认LCD分辨率与代码中设置一致。
 
 ### GIF无法播放
 - 检查文件路径与权限。
-- 确认GIF文件格式正确（使用`file test.gif`验证）。^[14]^
+- 确认GIF文件格式正确（使用`file test.gif`验证）。
 
 ### 性能问题
-- 尝试降低显示分辨率。^[15]^
-- 优化`lcd_draw_frame()`函数中的渲染算法。^[16]^
+- 尝试降低显示分辨率。
+- 优化`lcd_draw_frame()`函数中的渲染算法。
 
 ## 九、贡献指南
-- 提交issue前请先搜索已有问题。^[17]^
-- 代码提交需包含详细注释与测试。^[18]^
-- 遵循项目现有的代码风格。^[19]^
-- 重大变更请先创建讨论issue。^[20]^
+- 提交issue前请先搜索已有问题。
+- 代码提交需包含详细注释与测试。
+- 遵循项目现有的代码风格。
+- 重大变更请先创建讨论issue。
